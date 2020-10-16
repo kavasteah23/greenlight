@@ -69,16 +69,13 @@
       <div class="dropdown-menu dropdown-menu-right">
         <% recording_links = "" %>
         <% p = recording[:playbacks].each do |p| recording_links.concat(p[:url] + "\n\n") if p.key?(:length) end %>
-        <% download_links = "" %>
-        <% d = recording[:playbacks].each do |d| download_links.concat("/download/presentation/" + recording[:recordID].to_s + "/" + recording[:recordID].to_s + ".mp4").delete(' ') if d.key?(:length) end %>
         <% if p %>
           <a class="dropdown-item email-link" data-pres-link="<%= recording_links %>"><i class="dropdown-icon far fa-envelope"></i> <%= t("recording.email") %></a>
-          <a class="dropdown-item" href="<%= download_links %>" download target="_blank"><i class="dropdown-icon far fa-save"></i> <%= t("recording.download") %></a>
           <div class="dropdown-divider"></div>
         <% end %>
-        <%= button_to delete_recording_path(meetingID: recording[:meetingID], record_id: recording[:recordID]), method: :delete, class: "dropdown-item", "data-disable": "" do %>
+        <a href="" data-toggle="modal" data-target="#deleteRecordingModal" data-path="<%= delete_recording_path(meetingID: recording[:meetingID], record_id: recording[:recordID]) %>" class="delete-rec dropdown-item">
           <i class="dropdown-icon far fa-trash-alt"></i> <%= t("delete") %>
-        <% end %>
+        </a>
       </div>
     </div>
   </td>

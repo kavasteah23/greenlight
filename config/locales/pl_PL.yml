@@ -359,6 +359,7 @@ pl_PL:
   recording:
     all_recordings: Wszystkie nagrania
     email: Prześlij emailem nagranie.
+    download: Pobierz nagranie.
     no_recordings: "Ten pokój nie ma %{inject}nagrań."
     no_user_recordings: Obecnie nie masz żadnych nagrań.
     no_matched_recordings: "Brak %{inject} nagrań powiązanych z twoim wyszukiwaniem."
